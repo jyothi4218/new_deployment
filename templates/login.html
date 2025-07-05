@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+
+  <style>
+    body {
+      background-color: #141414;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e50914;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #f40612;
+      cursor: pointer;
+    }
+
+    .success-msg {
+      color: #4CAF50;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .error-msg {
+      color: #ff4d4d;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="num1" placeholder="Enter Username" required>
+      <input type="password" name="num2" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    {% if result %}
+      <p class="success-msg">Login successful</p>
+    {% endif %}
+
+    {% if resu %}
+      <p class="error-msg">ERROR: {{ resu }}</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>

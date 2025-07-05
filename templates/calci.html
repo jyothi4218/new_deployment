@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Calculator</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #141414;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calc-container {
+      background-color: #1f1f1f;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .calc-container h2 {
+      margin-bottom: 25px;
+      color: #e50914;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #e50914;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f40612;
+      cursor: pointer;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calc-container">
+    <h2>Smart Calculator</h2>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="num1" placeholder="Enter Number 1" required>
+      <input type="text" name="num2" placeholder="Enter Number 2" required>
+      <input type="text" name="op" placeholder="Enter Operation ( +  -  *  / )" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <div class="note">
+      Example: Enter 10, 5, and + to get 15
+    </div>
+  </div>
+
+</body>
+</html>
