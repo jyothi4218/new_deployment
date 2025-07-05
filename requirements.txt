@@ -3,4 +3,3 @@ Django
 gunicorn
 numpy
 scikit-learn
-
